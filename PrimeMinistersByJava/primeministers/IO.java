@@ -1,40 +1,44 @@
 package primeministers;
 
 import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
  * 入出力：リーダ・ダウンローダ・ライタを抽象する。
  */
-public abstract class IO extends Object
-{
-	protected Table table;
+public abstract class IO extends Object{
 	
+	private File filename;
 	/**
-	 * 入出力のコンストラクタ。
+	 * テーブル（表：スプレッドシート）を記憶するフィールド。
 	 */
-	IO(){
+	protected Table table;
+	/**
+	 * 入出力のコンストラクタ
+	 */
+	public IO(){
 		
 	}
 	/**
 	 * ファイルやディレクトリを削除するクラスメソッド。
-	 * @param aFile
+	 * @param aFIle
 	 */
-	static void deleteFileOrDirectory(File aFile){
+	public static void deleteFileOrDirectory(File aFIle){
 		
 	}
 	/**
 	 * 総理大臣ページのためのディレクトリ（存在しなければ作成して）を応答するクラスメソッド。
 	 * @return
 	 */
-	static File directoryOfPages(){
+	public static File directoryOfPages(){
 		
 	}
 	/**
-	 *入出力する際の文字コードを応答するクラスメソッド。 
+	 * 入出力する際の文字コードを応答するメソッド。
 	 * @return
 	 */
-	static String encodingSymbol(){
+	public static String encodingSymbol(){
 		
 	}
 	/**
@@ -42,7 +46,7 @@ public abstract class IO extends Object
 	 * @param aFile
 	 * @return
 	 */
-	static ArrayList<String> readTextFromFile(File aFile){
+	public static ArrayList<String> readTextFromFile(File aFile){
 		
 	}
 	/**
@@ -50,7 +54,7 @@ public abstract class IO extends Object
 	 * @param fileString
 	 * @return
 	 */
-	static ArrayList<String> readTextFromFile(String fileString){
+	public static ArrayList<String> readTextFromFile(String fileString){
 		
 	}
 	/**
@@ -58,48 +62,46 @@ public abstract class IO extends Object
 	 * @param urlString
 	 * @return
 	 */
-	static ArrayList<String> readTextFromURL(String urlString){
+	public static ArrayList<String> readTextFromURL(String urlString){
 		
 	}
 	/**
-	 * 指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
-	 * @param urlString
+	 * 指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメソッド
+	 * @param aURL
 	 * @return
 	 */
-	static ArrayList<String> readTextFromURL(String urlString){
+	public static ArrayList<String> readTextFromURL(URL aURL){
 		
 	}
 	/**
-	 * 文字列をセパレータで分割したトークン列を応答するクラスメソッド。
+	 * 文字列をセパレータで分割したトークン列を応答するクラスメソッド
 	 * @param string
 	 * @param separators
 	 * @return
 	 */
-	static ArrayList<String> splitString(String string, String separators){
+	public static ArrayList<String> splitString(String string,String separators){
 		
 	}
 	/**
-	 * テーブルを応答する。
-	 * @return
+	 * テーブルを応答する
 	 */
-	Table table(){
+	public Table table(){
 		
 	}
 	/**
-	 * 指定された行リストを、指定されたファイルに書き出すクラスメソッド。
+	 * 指定された行リストを、指定されたファイルに書き出すクラスメソッド
 	 * @param aCollection
 	 * @param aFile
 	 */
-	static void writeText(ArrayList<String> aCollection,File aFile){
+	public static void writeText(ArrayList<String> aCollection,File aFile){
 		
 	}
-	
 	/**
-	 * 指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド。
+	 * 指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド
 	 * @param aCollection
 	 * @param fileString
 	 */
-	static void writeText(ArrayList<String> aCollection,String fileString){
+	public static void writeText(ArrayList<String> aCollection,String fileString){
 		
 	}
 }
