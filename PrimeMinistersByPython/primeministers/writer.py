@@ -37,6 +37,16 @@ class Writer(io.IO):
 		for name in attribute.names():
 			file.write('\t\t\t\t\t\t\t<td class="center-pink"><strong>'+str(name)+'</strong></td>\n')
 		file.write("\t\t\t\t\t\t</tr>\n")
+		color = "blue"
+		for tuple in self._table.tuples():
+			file.write('\t\t\t\t\t\t<tr>\n')
+			for value in tuple.values:
+				file.write('\t\t\t\t\t\t\t<td class="center-'+str(color)+'">'+str(value)+'</td>\n')
+			file.write("\t\t\t\t\t\t</tr>\n" )
+			if color == 'blue':
+				color = "yellow"
+			elif color == 'yellow':
+				color = 'blue'
 		return None
 
 	def write_footer(self, file):

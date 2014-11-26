@@ -30,13 +30,12 @@ class Example(object):
 		a_table = a_downloader.download_all()
 		print a_table
 
-		"""
+	
 		# トランスレータに入力となるテーブルを渡して変換してもらい、
 		# 出力となるテーブルを獲得する。
 		a_translator = translator.Translator(a_table)
 		a_table = a_translator.table()
 		print a_table
-		"""
 
 		# ライタに出力となるテーブルを渡して、
 		# Webページを作成してもらう。

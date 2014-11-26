@@ -29,8 +29,9 @@ class Table(object):
 		self.tup.append(tuple)
 		keys = self.attribute.keys()
 		values = tuple.values
-		self.images_names.append(values[keys.index("img")])
-		self.thumbnail_names.append(values[keys.index("thum")])
+		if self.kind_string == 'input':
+			self.images_names.append(values[keys.index("img")])
+			self.thumbnail_names.append(values[keys.index("thum")])
 		return None
 
 	def attributes(self):

@@ -16,6 +16,7 @@ class Tuple(object):
 		for (attribute,value) in zip(self.attributes,self.values):
 			a_str += str(attribute)+':'
 			a_str += str(value)+'\n'
+		a_str += "\n"
 		return a_str
 
 	def attributes(self):
@@ -26,7 +27,11 @@ class Tuple(object):
 		"""値リストを応答する。"""
 		return self.values
 
-	def set_values(self, values):
+	def set_attributes(self,attributes):
+		self.attributes = attributes
+		return
+
+	def set_values(self,values):
 		"""値リストを設定する。"""
-		self.values.append(values)
-		return None
+		self.values = values
+		return 
