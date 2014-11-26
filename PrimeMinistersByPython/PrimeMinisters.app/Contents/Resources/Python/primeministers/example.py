@@ -30,7 +30,6 @@ class Example(object):
 		a_table = a_downloader.download_all()
 		print a_table
 
-	
 		# トランスレータに入力となるテーブルを渡して変換してもらい、
 		# 出力となるテーブルを獲得する。
 		a_translator = translator.Translator(a_table)

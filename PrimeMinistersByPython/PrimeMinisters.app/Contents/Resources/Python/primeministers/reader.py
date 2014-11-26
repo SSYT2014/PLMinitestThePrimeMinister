@@ -10,10 +10,8 @@ class Reader(io.IO):
 
 	def __init__(self, csv_filename):
 		"""リーダのコンストラクタ。"""
-		self._csv_filename = csv_filename
 		return
 
 	def table(self):
 		"""ダウンロードしたCSVファイルを読み込んでテーブルを応答する。"""
-			
 		return None
