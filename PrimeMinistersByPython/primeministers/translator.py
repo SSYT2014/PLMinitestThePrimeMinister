@@ -13,6 +13,7 @@ class Translator(object):
 
 	def __init__(self, input_table):
 		"""トランスレータのコンストラクタ。"""
+		self.a_table = input_table
 		return
 
 	def compute_string_of_days(self, period):
@@ -25,4 +26,5 @@ class Translator(object):
 
 	def table(self):
 		"""総理大臣のCSVファイルを基にしたテーブルから、HTMLページを基にするテーブルに変換して、それを応答する。"""
+		
 		return None

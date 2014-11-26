@@ -8,6 +8,8 @@ import sys
 import io
 import table
 import tuple
+import attributes
+
 
 class Writer(io.IO):
 	"""ライタ：総理大臣の情報のテーブルをHTMLページとして書き出す。"""
@@ -29,7 +31,13 @@ class Writer(io.IO):
 
 	def write_body(self, file):
 		"""ボディを書き出す。つまり、属性リストを書き出し、タプル群を書き出す。"""
-		return
+		
+		attribute = self._table.attributes()
+		file.write('\t\t\t\t\t\t<tr>\n')
+		for name in attribute.names():
+			file.write('\t\t\t\t\t\t\t<td class="center-pink"><strong>'+str(name)+'</strong></td>\n')
+		file.write("\t\t\t\t\t\t</tr>\n")
+		return None
 
 	def write_footer(self, file):
 		"""フッタを書き出す。"""

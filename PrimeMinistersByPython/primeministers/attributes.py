@@ -7,8 +7,8 @@ class Attributes(object):
 	def __init__(self, kind_string):
 		"""入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。"""
 		if kind_string == "output":
-			self._name = ["人目","代","氏名","ふりがな","在位期間","出身校","政党","出身地","画像","縮小画像"]
-			self._keys = ["id","no","name","ruby","util","school","party","country","img","thum"]
+			self._name = ["人目","代","氏名","ふりがな","在位期間","在位日数","出身校","政党","出身地","画像","縮小画像"]
+			self._keys = ["id","no","name","ruby",'util',"period","school","party","country","img","thum"]
 		
 		elif kind_string == "input":
 			self._name = ["人目","代","氏名","ふりがな","在位期間","出身校","政党","出身地","画像","縮小画像"]
