@@ -13,27 +13,29 @@ public class Reader extends IO{
 	 * リーダのコンストラクタ。
 	 */
 	Reader(){
-		
+		this.filename=new File("");
 	}
 	/**
 	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
 	 * @return
 	 */
 	public static File filenameOfCSV(){
-		
+		File aFile = new File("");
+		return aFile;
 	}
 	/**
 	 * ダウンロードしたCSVファイルを応答する。
-	 * @return
+	 * @return this.filename
 	 */
 	public File filename(){
-		
+		return this.filename;
 	}
 	/**
 	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
 	 */
 	public Table table(){
-		
+		Table aTable=new Table();
+		return aTable;
 	}
 	
 }

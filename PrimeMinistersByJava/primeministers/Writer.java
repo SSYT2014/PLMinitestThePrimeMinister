@@ -7,8 +7,7 @@ import java.util.ArrayList;
 /**
  * ライタ：総理大臣の情報のテーブルをHTMLページとして書き出す。
  */
-public class Writer extends IO
-{
+public class Writer extends IO{
 	/**
 	 * ライタのコンストラクタ。
 	 */
@@ -20,14 +19,14 @@ public class Writer extends IO
 	 * @return
 	 */
 	public Attributes attributes(){
-		
+		return null;
 	}
 	/**
 	 * ローカルなHTMLのインデックスファイル(index.html)を応答するクラスメソッド。
 	 * @return
 	 */
 	public static File filenameOfHTML(){
-		
+		 return null;
 	}
 	/**
 	 * HTMLページを基にするテーブルを受け取って、インデックスファイル(index.html)に書き出す。
@@ -35,14 +34,16 @@ public class Writer extends IO
 	 * @return
 	 */
 	public Table table(Table aTable){
-		
+		Table resultTable = new Table();
+		return resultTable;
 	}
 	/**
 	 * タプル群を応答する
 	 * @return
 	 */
 	public ArrayList<Tuple> tuples(){
-		
+		ArrayList<Tuple> tuples = new ArrayList<Tuple>();
+		return tuples;
 	}
 	/**
 	 * 属性リストを書き出す。

@@ -19,9 +19,9 @@ public class Translator extends Object
 	/**
 	 * トランスレータのコンストラクタ。
 	 */
-	public Translator()
-	{
+	public Translator(){
 		super();
+		Downloader aDownloader = new Downloader();
 		return;
 	}
 	/**
@@ -30,7 +30,8 @@ public class Translator extends Object
 	 * @return
 	 */
 	public String computeNumberOfDays(String periodString){
-		
+		String aString="";
+		return aString;
 	}
 	/**
 	 * サムネイル画像から画像へ飛ぶためのHTML文字列を作成して、それを応答する。
@@ -40,21 +41,24 @@ public class Translator extends Object
 	 * @return
 	 */
 	public String computeStringOfImage(String aString,Tuple aTuple,int no){
-		
+		String resultString="";
+		return resultString;
 	}
 	/**
 	 * 総理大臣のCSVファイルを基にしたテーブルから、HTMLページを基にするテーブルに変換して、それを応答する。
 	 * @param aTable
-	 * @return
+	 * @return resultTable;
 	 */
 	public Table table(Table aTable){
-		
+		Table resultTable = new Table();
+		return resultTable;
 	}
 	/**
 	 * 総理大臣のCSVファイルをHTMLページへ変換する。
 	 */
 	public void perform()
 	{
+		
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告", JOptionPane.PLAIN_MESSAGE);
 		return;

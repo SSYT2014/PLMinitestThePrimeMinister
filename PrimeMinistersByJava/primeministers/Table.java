@@ -28,63 +28,69 @@ public class Table extends Object
 	 * テーブルのコンストラクタ。
 	 */
 	Table(){
-		
+		this.tuples=new ArrayList<Tuple>();
+		this.images=new ArrayList<BufferedImage>();
+		this.thumbnails=new ArrayList<BufferedImage>();
+		return;
 	}
 	/**
-	 * 属性リストを応答する。
+	 * タプルを追加する。
 	 * @param aTuple
 	 */
 	public void add(Tuple aTuple){
-		
+		this.tuples.add(aTuple);
 	}
 	/**
 	 * 属性リストを応答する。
 	 * @return
 	 */
 	public Attributes attributes(){
-		
+		return this.attributes;
 	}
 	/**
 	 * 属性リストを設定する。
 	 * @param instanceOfAttributes
 	 */
 	public void attributes(Attributes instanceOfAttributes){
-		
+		this.attributes=instanceOfAttributes;
 	}
 	/**
 	 * 画像群を応答する。
 	 * @return
 	 */
 	public ArrayList<BufferedImage> images(){
-		
+		return this.images;
 	}
 	/**
 	 * 画像またはサムネイル画像の文字列を受け取って当該画像を応答する。
 	 * @param aString
-	 * @return
+	 * @return aImage
 	 */
 	private BufferedImage picture(String aString){
-		
+		BufferedImage aImage;
+		aImage=images.get(Integer.parseInt(aString));
+		return aImage;
 	}
 	/**
 	 * サムネイル画像群を応答する。
 	 * @return
 	 */
 	public ArrayList<BufferedImage> thumbnails(){
-		
+		return this.thumbnails;
 	}
 	/**
 	 * 自分自身を文字列にして、それを応答する。
-	 * @Override
+	 * @Override Object
 	 */
 	public String toString(){
-		
+		String aString="";
+		return aString;
 	}
 	/**
 	 * タプル群を応答する。
 	 * @return
 	 */
 	public ArrayList<Tuple> tuples(){
-		
+		return this.tuples;
 	}
 }
