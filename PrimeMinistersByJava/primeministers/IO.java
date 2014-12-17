@@ -113,9 +113,8 @@ public abstract class IO extends Object{
 			aInputStream = aURL.openStream();
 			InputStreamReader aStreamReader = new InputStreamReader(aInputStream);
 			BufferedReader aReader = new BufferedReader(aStreamReader);
-			String aString;
-			while((aString=aReader.readLine())!=null){
-				aList.add(aString);
+			while(true){
+				aList.add(aReader.readLine());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -153,7 +152,7 @@ public abstract class IO extends Object{
 		try {
 			FileWriter aFileWriter = new FileWriter(aFile);
 			aCollection.forEach(string->{try {
-				aFileWriter.write(string+"\n");
+				aFileWriter.write(string);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}});

@@ -1,6 +1,9 @@
 package primeministers;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -16,14 +19,14 @@ public class Reader extends IO{
 	 */
 	Reader(){
 		super();
-		this.filename=new File(IO.directoryOfPages(),"PrimeMinisters.csv");
+		this.filename=new File("./PrimeMinisters.csv");
 	}
 	/**
 	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
 	 * @return
 	 */
 	public static File filenameOfCSV(){
-		File aFile = new File(IO.directoryOfPages(),"PrimeMinisters.csv");
+		File aFile = new File("./PrimeMinisters.csv");
 		return aFile;
 	}
 	/**
@@ -39,21 +42,23 @@ public class Reader extends IO{
 	public Table table(){
 		Table aTable=new Table();
 		Attributes instanceOfAttributes=new Attributes("input");
-		boolean firstLine = true;
-		ArrayList<String> aCollection = super.readTextFromFile(this.filename);
-		Tuple aTuple;
-		for(String Line : aCollection){
-			ArrayList<String> splitString = super.splitString(Line, ",");
-			if(firstLine){
-				aTable.attributes(instanceOfAttributes);
-				aTable.attributes().names(splitString);
-				firstLine=false;
-			}else{
-				aTuple = new Tuple(aTable.attributes(),splitString);
+		FileReader aFileReader;
+		try {
+			aFileReader = new FileReader(this.filename());
+
+			BufferedReader aCSVReader = new BufferedReader(aFileReader);
+			String aString;
+			while((aString=aCSVReader.readLine())!=null){
+				ArrayList<String> valueCollection=splitString(aString,",");
+				Tuple aTuple = new Tuple(instanceOfAttributes,valueCollection);
 				aTable.add(aTuple);
 			}
+			aFileReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		return aTable;
 	}
+
 }
 

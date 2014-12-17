@@ -22,17 +22,24 @@ public class Attributes extends Object
 	 * @param aString
 	 */
 	Attributes(String aString){
-		if(aString.equals("output")){
-			this.names=new ArrayList<String>(Arrays.asList("人目","代","氏名","ふりがな","在位期間","在位日数","出身校","政党","出身地","画像"));
-			this.keys=new ArrayList<String>(Arrays.asList("id","no","name","ruby","util","period","school","party","country","img","thum","link"));
+		this.keys=new ArrayList<String>();
+		if(aString.equals("input")||aString.equals("output")){
+			//this.keys=(ArrayList<String>) Arrays.asList("人名","代","氏名","ふりがな","在位期間","出身校","政党","出身地","画像","縮小画像");
+			this.keys.add("人名");
+			this.keys.add("代");
+			this.keys.add("氏名");
+			this.keys.add("ふりがな");
+			this.keys.add("在位期間");
+			this.keys.add("出身校");
+			this.keys.add("政党");
+			this.keys.add("出身地");
+			this.keys.add("画像");
+			this.keys.add("縮小画像");
 			
-		}else if(aString.equals("input")){
-			this.names=new ArrayList<String>(Arrays.asList("人目","代","氏名","ふりがな","在位期間","出身校","政党","出身地","画像","縮小画像"));
-			this.keys=new ArrayList<String>(Arrays.asList("id","no","name","ruby","util","school","party","country","img","thum"));
 			
 		}
 	}
-
+	
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。名前が無いときはキーを応答する。
 	 * @param index
@@ -59,16 +66,16 @@ public class Attributes extends Object
 	 * @return index
 	 */
 	public int indexOfDays(){
-		int index = this.keys.indexOf("util");
+		int index = this.keys.indexOf("在位日数");
 		return index;
 	}
-
+	
 	/**
 	 * 画像のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfImage(){
-		int index = this.keys.indexOf("img");
+		int index = this.keys.indexOf("画像");
 		return index;
 	}
 	/**
@@ -76,7 +83,7 @@ public class Attributes extends Object
 	 * @return index
 	 */
 	public int indexOfKana(){
-		int index = this.keys.indexOf("ruby");
+		int index = this.keys.indexOf("ふりがな");
 		return index;
 	}
 	/**
@@ -84,80 +91,80 @@ public class Attributes extends Object
 	 * @return index
 	 */
 	public int indexOfName(){
-		int index = this.keys.indexOf("name");
+		int index = this.keys.indexOf("氏名");
 		return index;
 
 	}
-
+	
 	/**
 	 * 番号のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfNo(){
-		int index = this.keys.indexOf("id");
+		int index = this.keys.indexOf("人目");
 		return index;
 
 	}
-
+	
 	/**
 	 * 代のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfOrder(){
-		int index = this.keys.indexOf("no");
+		int index = this.keys.indexOf("代");
 		return index;
 
 	}
-
+	
 	/**
 	 * 政党のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfParty(){
-		int index = this.keys.indexOf("party");
+		int index = this.keys.indexOf("政党");
 		return index;
 
 	}
-
+	
 	/**
 	 * 在位期間のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfPeriod(){
-		int index = this.keys.indexOf("period");
+		int index = this.keys.indexOf("在位期間");
 		return index;
 
 	}
-
+	
 	/**
 	 * 出身地のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfPlace(){
-		int index = this.keys.indexOf("country");
+		int index = this.keys.indexOf("出身地");
 		return index;
 
 	}
-
+	
 	/**
 	 * 出身校のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfSchool(){
-		int index = this.keys.indexOf("school");
+		int index = this.keys.indexOf("出身校");
 		return index;
 
 	}
-
+	
 	/**
 	 * 画像のインデックスを応答する。
 	 * @return index
 	 */
 	public int indexOfThumbnail(){
-		int index = this.keys.indexOf("thum");
+		int index = this.keys.indexOf("縮小画像");
 		return index;
 	}
-
+	
 	/**
 	 * 指定されたインデックスに対応するキーを応答する。
 	 * @param index
@@ -167,7 +174,7 @@ public class Attributes extends Object
 		String key=this.keys.get(index);
 		return key;
 	}
-
+	
 	/**
 	 * キー群を応答する。
 	 * @return this.keys
@@ -175,7 +182,7 @@ public class Attributes extends Object
 	public ArrayList<String> keys(){
 		return this.keys;
 	}
-
+	
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。
 	 * @param index
@@ -185,7 +192,7 @@ public class Attributes extends Object
 		String name=this.names.get(index);
 		return name;
 	}
-
+	
 	/**
 	 * 名前群を応答する。
 	 * @return this.name
@@ -193,7 +200,7 @@ public class Attributes extends Object
 	public ArrayList<String> names(){
 		return this.names;
 	}
-
+	
 	/**
 	 * 名前群を設定する。
 	 * @param aCollection
@@ -201,7 +208,7 @@ public class Attributes extends Object
 	public void names(ArrayList<String> aCollection){
 		this.names=aCollection;
 	}
-
+	
 	/**
 	 * 属性リストの長さを応答する。
 	 * @return length
@@ -210,7 +217,7 @@ public class Attributes extends Object
 		int length=this.names.size();
 		return length;
 	}
-
+	
 
 	/**
 	 * 自分自身を文字列にして、それを応答する。
