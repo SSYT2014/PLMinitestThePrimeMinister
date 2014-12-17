@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 /**
@@ -30,22 +31,24 @@ public class Downloader extends IO{
 		super.directoryOfPages();
 		this.url="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
 		this.table=this.table();
+		this.downloadImages();
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードする。
 	 */
 	public void downloadCSV(){
-		try {
+		ArrayList<String> aCollection = super.readTextFromURL(url);
+		File aFile = new File(super.directoryOfPages(),"PrimeMinisters.csv");
+		super.writeText(aCollection, aFile);
+		/*	try {
 			URL aURL = new URL(url());
 			HttpURLConnection aURLConnection = (HttpURLConnection)aURL.openConnection();
 			aURLConnection.connect();
-
 			String filename = System.getProperty("user.home")+"/Desktop/SouriDaijin/PrimeMinisters.csv";
-	//		File aFile = new File(aString);
 			FileOutputStream aOutputStream = new FileOutputStream(filename);
-			
+
 			byte buff[] = new byte[4096];
-			
+
 			DataInputStream aInputStream = new DataInputStream(aURLConnection.getInputStream());
 			int readData;
 			while((readData=aInputStream.read(buff))!=-1){
@@ -56,27 +59,63 @@ public class Downloader extends IO{
 			return;
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 	/**
 	 * 総理大臣の画像群をダウンロードする。
 	 */
 	public void downloadImages(){
-		this.table.attributes().indexOfImage();
+		String aString = System.getProperty("user.home")+"/Desktop/SouriDaijin/images";
+		String filename = System.getProperty("user.home")+"/Desktop/SouriDaijin/images";
+		File aFile = new File(aString);
+		if(!aFile.exists()){
+			System.out.println("ファイルが存在しないので作成します。");
+			aFile.mkdir();
+		}
+		int indexOfPicture = this.table.attributes().indexOfImage();
+		this.downloadPictures(indexOfPicture);
+		System.out.println(this.table.attributes().indexOfImage());
+		ArrayList<Tuple> tuples = this.table.tuples();
+		tuples.forEach(e->System.out.println(e.values().get(8)));
 	}
 	/**
 	 * 総理大臣の画像群またはサムネイル画像群をダウンロードする。
 	 * @param indexOfPicture
 	 */
 	private void downloadPictures(int indexOfPicture){
-		
+		ArrayList<Tuple> tuples = this.table.tuples();
+		for(Tuple aTuple : tuples){
+			if(indexOfPicture==8){
+				File aFile =new File(super.directoryOfPages(),aTuple.values().get(indexOfPicture));
+				try {
+					URL aURL = new URL(urlString()+aTuple.values().get(indexOfPicture));
+					HttpURLConnection aURLConnection = (HttpURLConnection)aURL.openConnection();
+					aURLConnection.connect();
+					String filename = System.getProperty("user.home")+"/Desktop/SouriDaijin/"+aTuple.values().get(indexOfPicture);
+					FileOutputStream aOutputStream = new FileOutputStream(filename);
+
+					byte buff[] = new byte[4096];
+
+					DataInputStream aInputStream = new DataInputStream(aURLConnection.getInputStream());
+					int readData;
+					while((readData=aInputStream.read(buff))!=-1){
+						aOutputStream.write(buff,0,readData);
+					}
+					aInputStream.close();
+					System.out.println("Img"+aTuple.values().get(indexOfPicture)+" Download Finish");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
 	}
-	
+
 	/**
 	 * 総理大臣の画像群をダウンロードする。
 	 */
 	public void downloadThumbnails(){
-		
+
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードして、画像群やサムネイル画像群をダウロードし、テーブルで応答する。
@@ -85,11 +124,11 @@ public class Downloader extends IO{
 	 */
 	public Table table(){
 		this.downloadCSV();
+
 		Reader aReader = new Reader();
 		Table aTable=aReader.table();
-		
+
 		int a=0;
-		this.downloadPictures(a);
 		return aTable;
 	}
 	/**
@@ -105,7 +144,7 @@ public class Downloader extends IO{
 	 * @return
 	 */
 	public static String urlString(){
-		String aURLString="";
+		String aURLString="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/";
 		return aURLString;
 	}
 	/**
@@ -116,5 +155,5 @@ public class Downloader extends IO{
 		String aUrl = "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
 		return aUrl;
 	}
-	
+
 }
