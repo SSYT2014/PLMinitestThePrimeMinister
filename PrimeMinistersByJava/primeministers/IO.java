@@ -2,6 +2,8 @@ package primeministers;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,8 +39,13 @@ public abstract class IO extends Object{
 	 * @return aFile
 	 */
 	public static File directoryOfPages(){
-		File aFile= new File("./");
-		aFile.mkdir();
+		String aString = System.getProperty("user.home")+"/Desktop/SouriDaijin";
+		File aFile = new File(aString);
+
+		if(!aFile.exists()){
+			System.out.println("ファイルが存在しないので作成します。");
+			aFile.mkdir();
+		}
 		return aFile;
 	}
 	/**
@@ -56,6 +63,16 @@ public abstract class IO extends Object{
 	 */
 	public static ArrayList<String> readTextFromFile(File aFile){
 		ArrayList<String> aList=new ArrayList<String>();
+		try {
+			BufferedReader aLineReader = new BufferedReader(new FileReader(aFile));
+			String aString;
+			while((aString=aLineReader.readLine())!=null){
+				aList.add(aString);
+			}
+			aLineReader.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return aList;
 	}
 	/**
@@ -65,6 +82,8 @@ public abstract class IO extends Object{
 	 */
 	public static ArrayList<String> readTextFromFile(String fileString){
 		ArrayList<String> aList=new ArrayList<String>();
+		File aFile = new File(fileString);
+		aList=readTextFromFile(aFile);
 		return aList;
 	}
 	/**

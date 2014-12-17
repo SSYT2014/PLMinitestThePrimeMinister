@@ -40,6 +40,7 @@ public class Table extends Object
 	public void add(Tuple aTuple){
 		this.tuples.add(aTuple);
 	}
+
 	/**
 	 * 属性リストを応答する。
 	 * @return
@@ -83,8 +84,7 @@ public class Table extends Object
 	 * @Override Object
 	 */
 	public String toString(){
-		String aString="";
-		return aString;
+		return super.toString();
 	}
 	/**
 	 * タプル群を応答する。

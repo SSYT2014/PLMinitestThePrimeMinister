@@ -1,6 +1,7 @@
 package primeministers;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * 属性群：総理大臣の情報テーブルを入出力する際の属性情報を記憶。
@@ -21,7 +22,22 @@ public class Attributes extends Object
 	 * @param aString
 	 */
 	Attributes(String aString){
-		
+		this.keys=new ArrayList<String>();
+		if(aString.equals("input")||aString.equals("output")){
+			//this.keys=(ArrayList<String>) Arrays.asList("人名","代","氏名","ふりがな","在位期間","出身校","政党","出身地","画像","縮小画像");
+			this.keys.add("人名");
+			this.keys.add("代");
+			this.keys.add("氏名");
+			this.keys.add("ふりがな");
+			this.keys.add("在位期間");
+			this.keys.add("出身校");
+			this.keys.add("政党");
+			this.keys.add("出身地");
+			this.keys.add("画像");
+			this.keys.add("縮小画像");
+			
+			
+		}
 	}
 	
 	/**

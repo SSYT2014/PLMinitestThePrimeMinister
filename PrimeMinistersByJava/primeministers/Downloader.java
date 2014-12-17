@@ -2,6 +2,7 @@ package primeministers;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
@@ -25,8 +26,10 @@ public class Downloader extends IO{
 	 * ダウンローダのコンストラクタ。
 	 */
 	public Downloader(){
-		this.url=null;
-		this.table=new Table();
+		super();
+		super.directoryOfPages();
+		this.url="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
+		this.table=this.table();
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードする。
@@ -36,8 +39,10 @@ public class Downloader extends IO{
 			URL aURL = new URL(url());
 			HttpURLConnection aURLConnection = (HttpURLConnection)aURL.openConnection();
 			aURLConnection.connect();
-			
-			FileOutputStream aOutputStream = new FileOutputStream("./PrimeMinisters.csv");
+
+			String filename = System.getProperty("user.home")+"/Desktop/SouriDaijin/PrimeMinisters.csv";
+	//		File aFile = new File(aString);
+			FileOutputStream aOutputStream = new FileOutputStream(filename);
 			
 			byte buff[] = new byte[4096];
 			
@@ -48,6 +53,7 @@ public class Downloader extends IO{
 			}
 			aInputStream.close();
 			System.out.println("CSV Download Finish");
+			return;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -56,26 +62,14 @@ public class Downloader extends IO{
 	 * 総理大臣の画像群をダウンロードする。
 	 */
 	public void downloadImages(){
-		
+		this.table.attributes().indexOfImage();
 	}
 	/**
 	 * 総理大臣の画像群またはサムネイル画像群をダウンロードする。
 	 * @param indexOfPicture
 	 */
 	private void downloadPictures(int indexOfPicture){
-		try {
-			FileReader aFileReader = new FileReader("./csv");
-			BufferedReader aCSVReader = new BufferedReader(aFileReader);
-			String aLine;
-			StringTokenizer aToken;
-			while((aLine=aCSVReader.readLine())!=null){
-				aToken=new StringTokenizer(aLine,",");
-			}
-			
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
 	}
 	
 	/**
@@ -87,11 +81,14 @@ public class Downloader extends IO{
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードして、画像群やサムネイル画像群をダウロードし、テーブルで応答する。
 	 * @return aTable
+	 * 
 	 */
 	public Table table(){
-		Table aTable=new Table();
-		int a=0;
 		this.downloadCSV();
+		Reader aReader = new Reader();
+		Table aTable=aReader.table();
+		
+		int a=0;
 		this.downloadPictures(a);
 		return aTable;
 	}

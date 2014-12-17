@@ -21,7 +21,7 @@ public class Translator extends Object
 	 */
 	public Translator(){
 		super();
-		Downloader aDownloader = new Downloader();
+
 		return;
 	}
 	/**
@@ -58,6 +58,8 @@ public class Translator extends Object
 	 */
 	public void perform()
 	{
+		Downloader aDownloader = new Downloader();
+		aDownloader.downloadCSV();
 		
 		String aString = "総理大臣のCSVファイルからHTMLページへの変換を無事に完了しました。\n";
 		JOptionPane.showMessageDialog(null, aString, "報告", JOptionPane.PLAIN_MESSAGE);

@@ -14,9 +14,9 @@ public class Tuple extends Object
 	 * @param instanceOfAttributes
 	 * @param balueCollection
 	 */
-	public Tuple(Attributes instanceOfAttributes,ArrayList<String> balueCollection){
+	public Tuple(Attributes instanceOfAttributes,ArrayList<String> valueCollection){
 		this.attributes=instanceOfAttributes;
-		this.values=balueCollection;
+		this.values=valueCollection;
 	}
 	/**
 	 * 属性リストを応答する。
