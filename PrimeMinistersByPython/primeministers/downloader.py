@@ -21,14 +21,11 @@ class Downloader(io.IO):
 		self._csv_file_name = "PrimeMinisters.csv"
 	
 	def download_all(self):
-		a_table = table.Table("input")
+		
 		self.download_csv()
 		csv_file = self.read_csv(self._csv_file_name)
-		attribute = csv_file.next()
-		for row in csv_file:
-			values = row
-			tup = tuple.Tuple(attribute,values)
-			a_table.add(tup)
+		a_reader = reader.Reader(csv_file)
+	 	a_table = a_reader.table()
 		images_names = a_table.image_filenames()
 		images_thumnail = a_table.thumbnail_filenames()
 		for image in images_names:
@@ -46,7 +43,7 @@ class Downloader(io.IO):
 			os.makedirs(download_path)
 		a_request = urllib2.Request(a_url,headers={'User-Agent':"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0"})
 		try:
-			self._csv_file = open(self._csv_file_name,'wb')
+			self._csv_file = open(os.path.join(download_path,self._csv_file_name),'wb')
 		except IOError:
 			print 'IOError!!!!!!!'
 			return None
