@@ -67,6 +67,7 @@ public class Table extends Object
 	 * @param aString
 	 * @return aImage
 	 */
+	@SuppressWarnings("unused")
 	private BufferedImage picture(String aString){
 		BufferedImage aImage;
 		aImage=images.get(Integer.parseInt(aString));

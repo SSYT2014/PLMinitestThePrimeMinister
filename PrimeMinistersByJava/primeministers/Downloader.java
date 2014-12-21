@@ -1,17 +1,12 @@
 package primeministers;
 
-import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 /**
  * ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。
@@ -30,9 +25,9 @@ public class Downloader extends IO{
 		super();
 		super.directoryOfPages();
 		this.url="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
-		this.table=this.table();
-		this.downloadImages();
-		this.downloadThumbnails();
+
+		Reader aReader = new Reader();
+		this.table=aReader.table();
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードする。
@@ -41,34 +36,13 @@ public class Downloader extends IO{
 		ArrayList<String> aCollection = super.readTextFromURL(url);
 		File aFile = new File(super.directoryOfPages(),"PrimeMinisters.csv");
 		super.writeText(aCollection, aFile);
-		/*	try {
-			URL aURL = new URL(url());
-			HttpURLConnection aURLConnection = (HttpURLConnection)aURL.openConnection();
-			aURLConnection.connect();
-			String filename = System.getProperty("user.home")+"/Desktop/SouriDaijin/PrimeMinisters.csv";
-			FileOutputStream aOutputStream = new FileOutputStream(filename);
-
-			byte buff[] = new byte[4096];
-
-			DataInputStream aInputStream = new DataInputStream(aURLConnection.getInputStream());
-			int readData;
-			while((readData=aInputStream.read(buff))!=-1){
-				aOutputStream.write(buff,0,readData);
-			}
-			aInputStream.close();
-			System.out.println("CSV Download Finish");
-			return;
-		} catch (IOException e) {
-			e.printStackTrace();
-		}*/
 	}
 	/**
 	 * 総理大臣の画像群をダウンロードする。
 	 */
 	public void downloadImages(){
-		String aString = System.getProperty("user.home")+"/Desktop/SouriDaijin/images";
 		String filename = System.getProperty("user.home")+"/Desktop/SouriDaijin/images";
-		File aFile = new File(aString);
+		File aFile = new File(filename);
 		if(!aFile.exists()){
 			System.out.println("ファイルが存在しないので作成します。");
 			aFile.mkdir();
@@ -89,7 +63,6 @@ public class Downloader extends IO{
 		int thum = this.table.attributes().indexOfThumbnail();
 		for(Tuple aTuple : tuples){
 			if(indexOfPicture==img||indexOfPicture==thum){
-				File aFile =new File(super.directoryOfPages(),aTuple.values().get(indexOfPicture));
 				try {
 					URL aURL = new URL(urlString()+aTuple.values().get(indexOfPicture));
 					HttpURLConnection aURLConnection = (HttpURLConnection)aURL.openConnection();
@@ -104,6 +77,7 @@ public class Downloader extends IO{
 					while((readData=aInputStream.read(buff))!=-1){
 						aOutputStream.write(buff,0,readData);
 					}
+					aOutputStream.close();
 					aInputStream.close();
 					System.out.println(aTuple.values().get(indexOfPicture)+" Download Finish");
 				} catch (IOException e) {
@@ -134,11 +108,9 @@ public class Downloader extends IO{
 	 */
 	public Table table(){
 		this.downloadCSV();
-
-		Reader aReader = new Reader();
-		Table aTable=aReader.table();
-
-		int a=0;
+		Table aTable=this.table;
+		this.downloadImages();
+		this.downloadThumbnails();
 		return aTable;
 	}
 	/**

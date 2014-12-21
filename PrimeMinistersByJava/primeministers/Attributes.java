@@ -50,6 +50,7 @@ public class Attributes extends Object
 	 * @param aString
 	 * @return index
 	 */
+	@SuppressWarnings("unused")
 	private int indexOf(String aString){
 		int index=this.keys.indexOf(aString);
 		return index;
@@ -59,7 +60,7 @@ public class Attributes extends Object
 	 * @return index
 	 */
 	public int indexOfDays(){
-		int index = this.keys.indexOf("util");
+		int index = this.keys.indexOf("period");
 		return index;
 	}
 
@@ -124,7 +125,7 @@ public class Attributes extends Object
 	 * @return index
 	 */
 	public int indexOfPeriod(){
-		int index = this.keys.indexOf("period");
+		int index = this.keys.indexOf("util");
 		return index;
 
 	}
