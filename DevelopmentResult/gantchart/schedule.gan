@@ -8,7 +8,7 @@
     </view>
     <view id="resource-table">
         <field id="0" name="Name" width="50" order="0"/>
-        <field id="1" name="Default role" width="49" order="1"/>
+        <field id="1" name="Default role" width="50" order="1"/>
     </view>
     <!-- -->
     <calendars>
@@ -41,7 +41,7 @@
         <task id="4" name="基本設計書作成" color="#8cb6ce" meeting="false" start="2014-11-12" duration="5" complete="0" expand="true"/>
         <task id="6" name="詳細設計書" color="#8cb6ce" meeting="false" start="2014-11-18" duration="22" complete="0" expand="true"/>
         <task id="10" name="コーディング(Python)" color="#8cb6ce" meeting="false" start="2014-11-25" duration="17" complete="0" expand="true"/>
-        <task id="12" name="コーディング(Java)" color="#8cb6ce" meeting="false" start="2014-12-01" duration="9" complete="0" expand="true"/>
+        <task id="12" name="コーディング(Java)" color="#8cb6ce" meeting="false" start="2014-12-01" duration="15" complete="0" expand="true"/>
         <task id="14" name="単体テスト" color="#8cb6ce" meeting="false" start="2014-12-12" duration="2" complete="0" expand="true"/>
         <task id="16" name="結合テスト" color="#8cb6ce" meeting="false" start="2014-12-16" duration="4" complete="0" expand="true"/>
         <task id="18" name="予備日" color="#8cb6ce" meeting="false" start="2014-12-22" duration="3" complete="0" expand="true"/>
