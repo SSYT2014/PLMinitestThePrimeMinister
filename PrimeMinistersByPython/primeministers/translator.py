@@ -38,7 +38,8 @@ class Translator(object):
 		values = tuple.values
 		image = values[attribute_key.index('img')]
 		thumbnail = values[attribute_key.index('thum')]
-		a_str = '<a name="39" href="'+str(image)+'"><img class="borderless" src="'+str(thumbnail)+'" width="25" height="32" alt=""></a>'
+		imagename = re.split('/',str(image))
+		a_str = '<a name="39" href="'+str(image)+'"><img class="borderless" src="'+str(thumbnail)+'" width="25" height="32" alt=“'+str(imagename[1])+'”></a>'
 		return a_str
 
 	def table(self):
