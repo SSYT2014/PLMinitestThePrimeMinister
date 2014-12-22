@@ -88,7 +88,7 @@ public class Writer extends IO{
 	public void writeFooterOn(BufferedWriter outputWriter){
 		Date aDate = new Date();
 		SimpleDateFormat aDateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		String nameString="(PrimeMinisters written by Java) ";
+		String nameString="SSYT2014 (PrimeMinisters written by Java) ";
 		String dateString= aDateFormat.format(aDate);
 		try {
 			outputWriter.write("\t\t\t\t\t</tbody>\n\t\t\t\t</table>\n\t\t\t</td>\n\t\t</tr>\n\t</tbody>\n</table>\n<hr>\n<div class=\"right-small\">Created using " + nameString + " " + dateString + "</div>\n</body>\n</html>\n");
