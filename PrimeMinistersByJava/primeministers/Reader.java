@@ -16,7 +16,7 @@ public class Reader extends IO{
 	 */
 	Reader(){
 		super();
-		this.filename=new File(IO.directoryOfPages(),"PrimeMinisters.csv");
+		this.filename=new File(super.directoryOfPages(),"PrimeMinisters.csv");
 	}
 	/**
 	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。

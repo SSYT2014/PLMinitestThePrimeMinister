@@ -26,8 +26,6 @@ public class Downloader extends IO{
 		super.directoryOfPages();
 		this.url="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv";
 
-		Reader aReader = new Reader();
-		this.table=aReader.table();
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードする。
@@ -108,6 +106,8 @@ public class Downloader extends IO{
 	 */
 	public Table table(){
 		this.downloadCSV();
+		Reader aReader = new Reader();
+		this.table=aReader.table();
 		Table aTable=this.table;
 		this.downloadImages();
 		this.downloadThumbnails();
