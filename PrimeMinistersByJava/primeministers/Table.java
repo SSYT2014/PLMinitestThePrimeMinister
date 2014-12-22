@@ -43,7 +43,7 @@ public class Table extends Object
 
 	/**
 	 * 属性リストを応答する。
-	 * @return
+	 * @return this.attributes
 	 */
 	public Attributes attributes(){
 		return this.attributes;
@@ -57,7 +57,7 @@ public class Table extends Object
 	}
 	/**
 	 * 画像群を応答する。
-	 * @return
+	 * @return this.images
 	 */
 	public ArrayList<BufferedImage> images(){
 		return this.images;
@@ -75,7 +75,7 @@ public class Table extends Object
 	}
 	/**
 	 * サムネイル画像群を応答する。
-	 * @return
+	 * @return this.thumbnails
 	 */
 	public ArrayList<BufferedImage> thumbnails(){
 		return this.thumbnails;
@@ -83,13 +83,14 @@ public class Table extends Object
 	/**
 	 * 自分自身を文字列にして、それを応答する。
 	 * @Override Object
+	 * @return super.toString()
 	 */
 	public String toString(){
 		return super.toString();
 	}
 	/**
 	 * タプル群を応答する。
-	 * @return
+	 * @return this.tuples
 	 */
 	public ArrayList<Tuple> tuples(){
 		return this.tuples;

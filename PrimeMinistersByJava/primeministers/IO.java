@@ -140,6 +140,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * テーブルを応答する
+	 * @return this.table
 	 */
 	public Table table(){
 		return this.table;

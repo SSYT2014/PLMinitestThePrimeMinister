@@ -23,13 +23,12 @@ public class Translator extends Object
 	 */
 	public Translator(){
 		super();
-
 		return;
 	}
 	/**
 	 * 在位日数を計算して、それを文字列にして応答する。
 	 * @param periodString
-	 * @return
+	 * @return dayString
 	 */
 	public String computeNumberOfDays(String periodString){
 		ArrayList<String> splitPeriod = IO.splitString(periodString,"[〜年月日]+");
@@ -55,7 +54,7 @@ public class Translator extends Object
 	 * @param aString
 	 * @param aTuple
 	 * @param no
-	 * @return
+	 * @return resultString
 	 */
 	public String computeStringOfImage(String aString,Tuple aTuple,int no){
 		ArrayList<String> values = aTuple.values();

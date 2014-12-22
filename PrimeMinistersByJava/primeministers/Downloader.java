@@ -102,7 +102,6 @@ public class Downloader extends IO{
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードして、画像群やサムネイル画像群をダウロードし、テーブルで応答する。
 	 * @return aTable
-	 * 
 	 */
 	public Table table(){
 		this.downloadCSV();
@@ -123,7 +122,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の情報の在処(URL)を文字列で応答するクラスメソッド。
-	 * @return
+	 * @return aURLString
 	 */
 	public static String urlString(){
 		String aURLString="http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/";

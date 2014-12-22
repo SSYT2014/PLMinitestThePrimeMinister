@@ -24,12 +24,11 @@ public class Attributes extends Object
 	Attributes(String aString){
 		if(aString.equals("output")){
 			this.names=new ArrayList<String>(Arrays.asList("人目","代","氏名","ふりがな","在位期間","在位日数","出身校","政党","出身地","画像"));
-			this.keys=new ArrayList<String>(Arrays.asList("id","no","name","ruby","util","period","school","party","country","img","thum","link"));
+			this.keys=new ArrayList<String>(Arrays.asList("id","no","name","ruby","util","period","school","party","country","img","thum"));
 			
 		}else if(aString.equals("input")){
 			this.names=new ArrayList<String>(Arrays.asList("人目","代","氏名","ふりがな","在位期間","出身校","政党","出身地","画像","縮小画像"));
 			this.keys=new ArrayList<String>(Arrays.asList("id","no","name","ruby","util","school","party","country","img","thum"));
-			
 		}
 	}
 
