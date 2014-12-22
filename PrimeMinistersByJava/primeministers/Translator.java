@@ -6,20 +6,24 @@ import javax.swing.JOptionPane;
 
 /**
  * トランスレータ：総理大臣のCSVファイルをHTMLページへと変換するプログラム。
+ * 良好(2014年12月22日)
  */
 public class Translator extends Object
 {
 	/**
 	 * CSVに由来するテーブルを記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private Table inputTable;
 	/**
 	 * HTMLに由来するテーブルを記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private Table outputTable;
 
 	/**
 	 * トランスレータのコンストラクタ。
+	 * 良好(2014年12月22日)
 	 */
 	public Translator(){
 		super();
@@ -27,6 +31,7 @@ public class Translator extends Object
 	}
 	/**
 	 * 在位日数を計算して、それを文字列にして応答する。
+	 * 良好(2014年12月22日)
 	 * @param periodString
 	 * @return dayString
 	 */
@@ -51,6 +56,7 @@ public class Translator extends Object
 	}
 	/**
 	 * サムネイル画像から画像へ飛ぶためのHTML文字列を作成して、それを応答する。
+	 * 良好(2014年12月22日)
 	 * @param aString
 	 * @param aTuple
 	 * @param no
@@ -68,6 +74,7 @@ public class Translator extends Object
 	}
 	/**
 	 * 総理大臣のCSVファイルを基にしたテーブルから、HTMLページを基にするテーブルに変換して、それを応答する。
+	 * 良好(2014年12月22日)
 	 * @param aTable
 	 * @return resultTable;
 	 */
@@ -96,6 +103,7 @@ public class Translator extends Object
 	}
 	/**
 	 * 総理大臣のCSVファイルをHTMLページへ変換する。
+	 * 良好(2014年12月22日)
 	 */
 	public void perform()
 	{

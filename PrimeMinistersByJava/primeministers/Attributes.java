@@ -5,20 +5,24 @@ import java.util.Arrays;
 
 /**
  * 属性群：総理大臣の情報テーブルを入出力する際の属性情報を記憶。
+ * 良好(2014年12月22日)
  */
 public class Attributes extends Object
 {
 	/**
 	 * 属性リストのキー群を記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private ArrayList<String> keys;
 	/**
 	 * 属性リストの名前群を記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private ArrayList<String> names;
 
 	/**
 	 * 入力用("input")または出力用("output")で属性リストを作成するコンストラクタ。
+	 * 良好(2014年12月22日)
 	 * @param aString
 	 */
 	Attributes(String aString){
@@ -34,6 +38,7 @@ public class Attributes extends Object
 
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。名前が無いときはキーを応答する。
+	 * 良好(2014年12月22日)
 	 * @param index
 	 * @return　keys or names
 	 */
@@ -46,6 +51,7 @@ public class Attributes extends Object
 	}
 	/**
 	 * 指定されたキー文字列のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @param aString
 	 * @return index
 	 */
@@ -56,6 +62,7 @@ public class Attributes extends Object
 	}
 	/**
 	 * 在位日数のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfDays(){
@@ -65,6 +72,7 @@ public class Attributes extends Object
 
 	/**
 	 * 画像のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfImage(){
@@ -73,6 +81,7 @@ public class Attributes extends Object
 	}
 	/**
 	 * ふりがなのインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfKana(){
@@ -81,6 +90,7 @@ public class Attributes extends Object
 	}
 	/**
 	 * 氏名のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfName(){
@@ -91,6 +101,7 @@ public class Attributes extends Object
 
 	/**
 	 * 番号のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfNo(){
@@ -101,6 +112,7 @@ public class Attributes extends Object
 
 	/**
 	 * 代のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfOrder(){
@@ -111,6 +123,7 @@ public class Attributes extends Object
 
 	/**
 	 * 政党のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfParty(){
@@ -121,6 +134,7 @@ public class Attributes extends Object
 
 	/**
 	 * 在位期間のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfPeriod(){
@@ -131,6 +145,7 @@ public class Attributes extends Object
 
 	/**
 	 * 出身地のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfPlace(){
@@ -141,6 +156,7 @@ public class Attributes extends Object
 
 	/**
 	 * 出身校のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfSchool(){
@@ -151,6 +167,7 @@ public class Attributes extends Object
 
 	/**
 	 * 画像のインデックスを応答する。
+	 * 良好(2014年12月22日)
 	 * @return index
 	 */
 	public int indexOfThumbnail(){
@@ -160,6 +177,7 @@ public class Attributes extends Object
 
 	/**
 	 * 指定されたインデックスに対応するキーを応答する。
+	 * 良好(2014年12月22日)
 	 * @param index
 	 * @return key
 	 */
@@ -170,6 +188,7 @@ public class Attributes extends Object
 
 	/**
 	 * キー群を応答する。
+	 * 良好(2014年12月22日)
 	 * @return this.keys
 	 */
 	public ArrayList<String> keys(){
@@ -178,6 +197,7 @@ public class Attributes extends Object
 
 	/**
 	 * 指定されたインデックスに対応する名前を応答する。
+	 * 良好(2014年12月22日)
 	 * @param index
 	 * @return name
 	 */
@@ -188,6 +208,7 @@ public class Attributes extends Object
 
 	/**
 	 * 名前群を応答する。
+	 * 良好(2014年12月22日)
 	 * @return this.name
 	 */
 	public ArrayList<String> names(){
@@ -196,6 +217,7 @@ public class Attributes extends Object
 
 	/**
 	 * 名前群を設定する。
+	 * 良好(2014年12月22日)
 	 * @param aCollection
 	 */
 	public void names(ArrayList<String> aCollection){
@@ -204,6 +226,7 @@ public class Attributes extends Object
 
 	/**
 	 * 属性リストの長さを応答する。
+	 * 良好(2014年12月22日)
 	 * @return length
 	 */
 	public int size(){
@@ -214,6 +237,7 @@ public class Attributes extends Object
 
 	/**
 	 * 自分自身を文字列にして、それを応答する。
+	 * 良好(2014年12月22日)
 	 * @return aString
 	 */
 	public String toString(){

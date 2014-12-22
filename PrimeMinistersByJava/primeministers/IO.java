@@ -2,7 +2,6 @@ package primeministers;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,21 +13,25 @@ import java.util.ArrayList;
 
 /**
  * 入出力：リーダ・ダウンローダ・ライタを抽象する。
+ * 良好(2014年12月22日)
  */
 public abstract class IO extends Object{
 
 	private File filename;
 	/**
 	 * テーブル（表：スプレッドシート）を記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	protected Table table;
 	/**
 	 * 入出力のコンストラクタ
+	 * 良好(2014年12月22日)
 	 */
 	public IO(){
 	}
 	/**
 	 * ファイルやディレクトリを削除するクラスメソッド。
+	 * 良好(2014年12月22日)
 	 * @param aFile
 	 */
 	public static void deleteFileOrDirectory(File aFile){
@@ -36,6 +39,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 総理大臣ページのためのディレクトリ（存在しなければ作成して）を応答するクラスメソッド。
+	 * 良好(2014年12月22日)
 	 * @return aFile
 	 */
 	public static File directoryOfPages(){
@@ -50,6 +54,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 入出力する際の文字コードを応答するメソッド。
+	 * 良好(2014年12月22日)
 	 * @return encoding
 	 */
 	public static String encodingSymbol(){
@@ -58,6 +63,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 指定されたファイルからテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+	 * 良好(2014年12月22日)
 	 * @param aFile
 	 * @return aList
 	 */
@@ -77,6 +83,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 指定されたファイル文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+	 * 良好(2014年12月22日)
 	 * @param fileString
 	 * @return aList
 	 */
@@ -88,6 +95,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 指定されたURL文字列からテキストを読み込んで、それを行リストにして応答するクラスメソッド。
+	 * 良好(2014年12月22日)
 	 * @param urlString
 	 * @return aList
 	 */
@@ -103,6 +111,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 指定されたURLからテキストを読み込んで、それを行リストにして応答するクラスメソッド
+	 * 良好(2014年12月22日)
 	 * @param aURL
 	 * @return aList
 	 */
@@ -125,6 +134,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 文字列をセパレータで分割したトークン列を応答するクラスメソッド
+	 * 良好(2014年12月22日)
 	 * @param string
 	 * @param separators
 	 * @return aList
@@ -140,6 +150,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * テーブルを応答する
+	 * 良好(2014年12月22日)
 	 * @return this.table
 	 */
 	public Table table(){
@@ -147,6 +158,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 指定された行リストを、指定されたファイルに書き出すクラスメソッド
+	 * 良好(2014年12月22日)
 	 * @param aCollection
 	 * @param aFile
 	 */
@@ -165,6 +177,7 @@ public abstract class IO extends Object{
 	}
 	/**
 	 * 指定された行リストを、指定されたファイル名のファイルに書き出すクラスメソッド
+	 * 良好(2014年12月22日)
 	 * @param aCollection
 	 * @param fileString
 	 */

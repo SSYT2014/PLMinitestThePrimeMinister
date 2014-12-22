@@ -14,12 +14,14 @@ import java.util.ArrayList;
 public class Downloader extends IO{
 	/**
 	 * 総理大臣の情報を記したCSVファイルの在処(URL文字列)を記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private String url;
 	private Table table;
 
 	/**
 	 * ダウンローダのコンストラクタ。
+	 * 良好(2014年12月22日)
 	 */
 	public Downloader(){
 		super();
@@ -29,6 +31,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードする。
+	 * 良好(2014年12月22日)
 	 */
 	public void downloadCSV(){
 		ArrayList<String> aCollection = super.readTextFromURL(url);
@@ -37,6 +40,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の画像群をダウンロードする。
+	 * 良好(2014年12月22日)
 	 */
 	public void downloadImages(){
 		String filename = System.getProperty("user.home")+"/Desktop/SouriDaijin/images";
@@ -53,6 +57,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の画像群またはサムネイル画像群をダウンロードする。
+	 * 良好(2014年12月22日)
 	 * @param indexOfPicture
 	 */
 	private void downloadPictures(int indexOfPicture){
@@ -88,6 +93,7 @@ public class Downloader extends IO{
 
 	/**
 	 * 総理大臣の画像群をダウンロードする。
+	 * 良好(2014年12月22日)
 	 */
 	public void downloadThumbnails(){
 		String aString = System.getProperty("user.home")+"/Desktop/SouriDaijin/thumbnails";
@@ -101,6 +107,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルをダウンロードして、画像群やサムネイル画像群をダウロードし、テーブルで応答する。
+	 * 良好(2014年12月22日)
 	 * @return aTable
 	 */
 	public Table table(){
@@ -114,6 +121,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルの在処(URL)を文字列で応答する。
+	 * 良好(2014年12月22日)
 	 * @return aUrl
 	 */
 	public String url(){
@@ -122,6 +130,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の情報の在処(URL)を文字列で応答するクラスメソッド。
+	 * 良好(2014年12月22日)
 	 * @return aURLString
 	 */
 	public static String urlString(){
@@ -130,6 +139,7 @@ public class Downloader extends IO{
 	}
 	/**
 	 * 総理大臣の情報を記したCSVファイルの在処(URL)を文字列で応答するクラスメソッド。
+	 * 良好(2014年12月22日)
 	 * @return aUrl
 	 */
 	public static String urlStringOfCSV(){

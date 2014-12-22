@@ -5,27 +5,34 @@ import java.util.ArrayList;
 
 /**
  * 表：総理大臣の情報テーブル。
+ * 良好(2014年12月22日)
  */
 public class Table extends Object
 {
 	/**
 	 * 属性リストを記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private Attributes attributes;
 	/**
 	 * タプル郡を記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private ArrayList<Tuple> tuples;
 	/**
 	 * 画像群を記憶するフィールド。
+	 * 良好、不使用(2014年12月22日)
+	 * 
 	 */
 	private ArrayList<BufferedImage> images;
 	/**
 	 * サムネイル画像群を記憶するフィールド
+	 * 良好、不使用(2014年12月22日)
 	 */
 	private ArrayList<BufferedImage> thumbnails;
 	/**
 	 * テーブルのコンストラクタ。
+	 * 良好(2014年12月22日)
 	 */
 	Table(){
 		this.tuples=new ArrayList<Tuple>();
@@ -35,6 +42,7 @@ public class Table extends Object
 	}
 	/**
 	 * タプルを追加する。
+	 * 良好(2014年12月22日)
 	 * @param aTuple
 	 */
 	public void add(Tuple aTuple){
@@ -43,6 +51,7 @@ public class Table extends Object
 
 	/**
 	 * 属性リストを応答する。
+	 * 良好(2014年12月22日)
 	 * @return this.attributes
 	 */
 	public Attributes attributes(){
@@ -50,6 +59,7 @@ public class Table extends Object
 	}
 	/**
 	 * 属性リストを設定する。
+	 * 良好(2014年12月22日)
 	 * @param instanceOfAttributes
 	 */
 	public void attributes(Attributes instanceOfAttributes){
@@ -57,6 +67,7 @@ public class Table extends Object
 	}
 	/**
 	 * 画像群を応答する。
+	 * 良好、不使用(2014年12月22日)
 	 * @return this.images
 	 */
 	public ArrayList<BufferedImage> images(){
@@ -64,6 +75,8 @@ public class Table extends Object
 	}
 	/**
 	 * 画像またはサムネイル画像の文字列を受け取って当該画像を応答する。
+	 * 良好(2014年12月22日)
+	 * 不使用(2014年12月22日)
 	 * @param aString
 	 * @return aImage
 	 */
@@ -75,6 +88,7 @@ public class Table extends Object
 	}
 	/**
 	 * サムネイル画像群を応答する。
+	 * 良好(2014年12月22日)
 	 * @return this.thumbnails
 	 */
 	public ArrayList<BufferedImage> thumbnails(){
@@ -82,6 +96,7 @@ public class Table extends Object
 	}
 	/**
 	 * 自分自身を文字列にして、それを応答する。
+	 * 良好(2014年12月22日)
 	 * @Override Object
 	 * @return super.toString()
 	 */
@@ -90,6 +105,7 @@ public class Table extends Object
 	}
 	/**
 	 * タプル群を応答する。
+	 * 良好(2014年12月22日)
 	 * @return this.tuples
 	 */
 	public ArrayList<Tuple> tuples(){

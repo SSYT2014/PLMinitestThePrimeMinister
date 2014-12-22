@@ -5,14 +5,17 @@ import java.util.ArrayList;
 
 /**
  * リーダ：総理大臣の情報を記したCSVファイルを読み込んでテーブルに仕立て上げる。
+ * 良好(2014年12月22日)
  */
 public class Reader extends IO{
 	/**
 	 * 総理大臣の情報を記したCSVファイルを記憶するフィールド。
+	 * 良好(2014年12月22日)
 	 */
 	private File filename;
 	/**
 	 * リーダのコンストラクタ。
+	 * 良好(2014年12月22日)
 	 */
 	Reader(){
 		super();
@@ -20,7 +23,8 @@ public class Reader extends IO{
 	}
 	/**
 	 * ダウンロードしたCSVファイルのローカルなファイルを応答するクラスメソッド。
-	 * @return
+	 * 良好(2014年12月22日)
+	 * @return aFile
 	 */
 	public static File filenameOfCSV(){
 		File aFile = new File(IO.directoryOfPages(),"PrimeMinisters.csv");
@@ -28,6 +32,7 @@ public class Reader extends IO{
 	}
 	/**
 	 * ダウンロードしたCSVファイルを応答する。
+	 * 良好(2014年12月22日)
 	 * @return this.filename
 	 */
 	public File filename(){
@@ -35,6 +40,8 @@ public class Reader extends IO{
 	}
 	/**
 	 * ダウンロードしたCSVファイルを読み込んでテーブルを応答する。
+	 * 良好(2014年12月22日)
+	 * @return aTable
 	 */
 	public Table table(){
 		Table aTable=new Table();

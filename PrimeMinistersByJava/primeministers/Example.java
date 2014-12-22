@@ -2,11 +2,13 @@ package primeministers;
 
 /**
  * 例題プログラム：総理大臣のCSVファイルをHTMLページへと変換する。
+ * 良好(2014年12月22日)
  */
 public class Example extends Object
 {
 	/**
-	 * サンプルのメインプログラム。
+	 * メインプログラム。
+	 * 良好(2014年12月22日)
 	 */
 	public static void main(String[] arguments)
 	{
