@@ -1,6 +1,11 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
 class Attributes(object):
 	"""属性リスト：総理大臣の情報テーブルを入出力する際の属性情報を記憶。"""
 

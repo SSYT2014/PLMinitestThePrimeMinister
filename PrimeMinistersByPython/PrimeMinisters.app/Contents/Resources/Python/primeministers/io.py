@@ -1,23 +1,21 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
 import csv
 
 class IO(object):
 	"""入出力：リーダ・ダウンローダ・ライタを抽象する。"""
-	
-	def read_csv(self, filename):
-		"""指定されたファイルをCSVとして読み込む。"""
-		a_file = open(filename+".csv","r")
-		a_reader = csv.reader(a_file)
-		for row in reader:
-			print row
-		return one
-	
-	def write_csv(self, filename, rows):
-		"""指定されたファイルにCSVとして行たち(rows)を書き出す。"""
-		a_file = open(filename,"w")
-		for line in rows:
-			a_file.write(line)
-		a_file.close()
-		return a_file
+		
+	"""指定されたファイルをCSVとして読み込む """
+	def read_csv(self,filename):
+		csv_file = csv.reader(open(filename,'rU'),delimiter=',',quotechar='"')
+		return csv_file
+	"""指定されたファイルにCSVとして行立ちを書き出す """
+	def write_csv(self,filename,rows):
+		return None
+		

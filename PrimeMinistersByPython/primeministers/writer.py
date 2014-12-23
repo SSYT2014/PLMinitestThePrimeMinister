@@ -1,14 +1,20 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
+
+from primeministers import table
+from primeministers import tuple
+from primeministers import attributes
 import datetime
 import os
 import sys
 
 import io
-import table
-import tuple
-import attributes
+
 
 
 class Writer(io.IO):

@@ -26,4 +26,5 @@ sdist: clean
 	python setup.py sdist
 
 pydoc: clean
-	(sleep 3 ; open http://localhost:9999/$(PACKAGE).html) & pydoc -p 9999
+
+	(sleep 3 ; open http://localhost:9999/$(PACKAGE).html)

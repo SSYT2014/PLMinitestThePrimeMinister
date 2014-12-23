@@ -1,16 +1,23 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
+
+from primeministers import reader
+from primeministers import tuple
+from primeministers import table
+from primeministers import io
 import os
+import re
 import shutil
+import time
 import urllib2
 
-import io
-import reader
-import tuple
-import table
-import re
-import time
+
+
 
 class Downloader(io.IO):
 	"""ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。"""
@@ -21,9 +28,9 @@ class Downloader(io.IO):
 		self._csv_file_name = "PrimeMinisters.csv"
 	
 	def download_all(self):
-		
+		"""すべてをダウンロードする """
 		self.download_csv()
-		csv_file = self.read_csv(self._csv_file_name)
+		csv_file = self.read_csv(os.path.join(self._base_directory,"csv",self._csv_file_name))
 		a_reader = reader.Reader(csv_file)
 	 	a_table = a_reader.table()
 		images_names = a_table.image_filenames()
@@ -35,6 +42,7 @@ class Downloader(io.IO):
 		return a_table
 	
 	def download_csv(self):
+		"""csvファイルをダウンロードする """
 		a_url = "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv"
 		opener = urllib2.build_opener()
 		download_path = os.path.join(self._base_directory,"csv")
@@ -58,8 +66,8 @@ class Downloader(io.IO):
 		print 'End Download CSV File.'
 		return None
 
-	"""CSVより画像の名前を抽出する """
 	def download_images(self,image_filename):
+		"""画像をダウンロードする """
 		#time.sleep(1) #1秒だけ待つ
 		image_pat = re.compile('images/')
 		thumbnail_pat = re.compile('thumbnails/')
