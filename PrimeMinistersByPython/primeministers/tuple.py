@@ -1,6 +1,11 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
 class Tuple(object):
 	"""タプル：総理大臣の情報テーブルの中の各々のレコード。"""
 
@@ -28,6 +33,7 @@ class Tuple(object):
 		return self.values
 
 	def set_attributes(self,attributes):
+		"""属性リストを設定する """
 		self.attributes = attributes
 		return
 

@@ -1,7 +1,12 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import attributes
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
+
+from primeministers import attributes
 
 class Table(object):
 	"""表：総理大臣の情報テーブル。"""

@@ -1,87 +1,110 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
+
+from primeministers import reader
+from primeministers import tuple
+from primeministers import table
+from primeministers import io
 import os
+import re
 import shutil
+import time
 import urllib2
 
-import io
-import reader
+
+
 
 class Downloader(io.IO):
 	"""ダウンローダ：総理大臣のCSVファイル・画像ファイル・サムネイル画像ファイルをダウンロードする。"""
-
-	def __init__(self, base_directory):
+	
+	def __init__(self,base_directory):
 		"""ダウンローダのコンストラクタ。"""
 		self._base_directory = base_directory
-		return base_directory
-
+		self._csv_file_name = "PrimeMinisters.csv"
+	
 	def download_all(self):
-		"""すべて（総理大臣の情報を記したCSVファイル・画像ファイル群・縮小画像ファイル群）をダウンロードし、テーブルを応答する。"""
-		thumbnail_files = []
-		img_files = []
-		a_ksu_url = "http://www.cc.kyoto-su.ac.jp/~athushi/Programs/CSV2HTML/PrimeMinisters/"
-
-		if not os.path.exists(os.path.join(self._base_directory,"images")):
-			os.mkdir(base_directory+"/images")
-			a_image_directory = os.path.join(self._base_directory,"images")
-
-		if not os.path.exists(os.path,join(self._base_directory,"thumbnails")):
-			os.mkdir(os.path,join(self._base_directory,"thumbnails")
-			a_thumbnail_directory = base_directory+"/thumbnails"
-
-		for index in range(39,63):
-			"""後ほど改善総理大臣が増えた時にめんどくさい"""
-			a_image_url = a_ksu_url+"0"+str(index)+".jpg"
-			a_thumbnail_url = a_ksu_url+"0"+str(index)+".jpg"
-			opener = urllib2.build_opener()
-			thumbnail_request = urllib2.Request(a_thumbnail_url,headers={'User-Agent : "Magic Browser"'})
-			thumbnail_file = open(base_directory+"/thumbnail/"+str(index)+".jpg",'wb')
-			thumbnail_file.write(opener.open(thumbnail_request).read())
-			thumbnail_files.append(thumnail_file)
-			thumbnail_file.close()
-
-			img_file = open(bese_directory+"/images/"+str(index)+".jpg",'wb')
-			img_file.write(opener.open(request).read())
-			img_files.append(ima_file)
-			img_file.close()
-
-		a_csv_url = a_ksu_url+"PrimeMinisters.csv"
-		request_csv = urllib2.Request(a_csv_url,headers={'User-Agent' : 'Magic Browser'})
-		csv_file = open(bese_directory,'wb')
-		csv_file.write(opener.open(request_csv).read())
-		csv_file.close()			
-		return None
-
+		"""すべてをダウンロードする """
+		self.download_csv()
+		csv_file = self.read_csv(os.path.join(self._base_directory,"csv",self._csv_file_name))
+		a_reader = reader.Reader(csv_file)
+	 	a_table = a_reader.table()
+		images_names = a_table.image_filenames()
+		images_thumnail = a_table.thumbnail_filenames()
+		for image in images_names:
+			self.download_images(image)
+		for thumbnail in images_thumnail:
+			self.download_images(thumbnail)
+		return a_table
+	
 	def download_csv(self):
-		"""総理大臣の情報を記したCSVファイルをダウンロードする。"""
-		a_ksu_url = "http://www.cc.kyoto-su.ac.jp/~athushi/Programs/CSV2HTML/PrimeMinisters/"
-		a_csv_url = a_ksu_url+"PrimeMinisters.csv"
-		request_csv = urllib2.Request(a_csv_url,headers={'User-Agent' : 'Magic Browser'})
-		csv_file = open(bese_directory,'wb')
-		csv_file.write(opener.open(request_csv).read())
-		csv_file.close()	
+		"""csvファイルをダウンロードする """
+		a_url = "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/PrimeMinisters.csv"
+		opener = urllib2.build_opener()
+		download_path = os.path.join(self._base_directory,"csv")
+		if not os.path.exists(download_path):
+			print "Create Directory..."+str(download_path)
+			os.makedirs(download_path)
+		a_request = urllib2.Request(a_url,headers={'User-Agent':"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0"})
+		try:
+			self._csv_file = open(os.path.join(download_path,self._csv_file_name),'wb')
+		except IOError:
+			print 'IOError!!!!!!!'
+			return None
+		try:
+			a_csv = opener.open(a_request).read()
+		except urllib2.HTTPError, e:
+			print 'Cannot Open This Page'
+			print 'Error Code',e.code
+			return None
+		self._csv_file.write(a_csv)
+		self._csv_file.close()
+		print 'End Download CSV File.'
 		return None
-	def download_images(self, image_filenames):
-		"""画像ファイル群または縮小画像ファイル群をダウンロードする。"""
-	       	a_ksu_url = "http://www.cc.kyoto-su.ac.jp/~athushi/Programs/CSV2HTML/PrimeMinisters/"
-		if not os.path.exists(base_directory+"/images"):
-			os.mkdir(base_directory+"/images")
-			a_image_directory = base_directory+"/images"
-		if not os.path.exists(base_directory+"/thumbnails"):
-			os.mkdir(base_directory+"/thumbnails")
-			a_thumbnail_directory = base_directory+"/thumbnails"
-		for index in range(39,63):
-			"""後ほど改善総理大臣が増えた時にめんどくさい"""
-			a_image_url = a_ksu_url+"0"+str(index)+".jpg"
-			a_thumbnail_url = a_ksu_url+"0"+str(index)+".jpg"
-			opener = urllib2.build_opener()
-			request = urllib2.Request(a_url,headers={'User-Agent' : "Magic Browser"})
-			thumbnail_request = urllib2.Request(a_thumbnail_url,headers={'User-Agent : "Magic Browser"'})
-			thumbnail_file = open(base_directory+"/thumbnail/"+str(index)+".jpg",'wb')
-			thumbnail_write(opener.open(thumbnail_request).read())
-			thumbnail_file.close()
-			img_file = open(bese_directory+"/images/"+str(index)+".jpg",'wb')
-			img_file.write(opener.open(request).read())
-			img_file.close()
+
+	def download_images(self,image_filename):
+		"""画像をダウンロードする """
+		#time.sleep(1) #1秒だけ待つ
+		image_pat = re.compile('images/')
+		thumbnail_pat = re.compile('thumbnails/')
+		a_url = "http://www.cc.kyoto-su.ac.jp/~atsushi/Programs/CSV2HTML/PrimeMinisters/"+str(image_filename)
+		opener = urllib2.build_opener()
+		if not image_pat.search(image_filename) == None: 
+			download_path = os.path.join(self._base_directory,"images")
+			if not os.path.exists(download_path):
+				print "Create Directory..."+str(download_path)
+				os.makedirs(download_path)
+		elif not thumbnail_pat.search == None:
+			download_path = os.path.join(self._base_directory,"thumbnails")
+			if not os.path.exists(download_path):
+				print "Create Directory..."+str(download_path)
+				os.makedirs(download_path)
+		else:
+			print 'This file is NOT exists!!'
+			
+		a_request = urllib2.Request(a_url,headers={'User-Agent':"Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:33.0) Gecko/20100101 Firefox/33.0"})
+		try:
+			self._image_file = open(os.path.join(self._base_directory,image_filename),'wb')
+		except IOError:
+			print 'IOError!!!!!!!'
+			return None
+		try:
+			a_image = opener.open(a_request).read()
+		except urllib2.HTTPError, e:
+			print 'Cannot Open This Page'
+			print 'Error Code',e.code
+			return None
+		self._image_file.write(a_image)
+		self._image_file.close()
+		print 'End Download image File.'
 		return None
+
+		return None
+		
+		
+	
+				 

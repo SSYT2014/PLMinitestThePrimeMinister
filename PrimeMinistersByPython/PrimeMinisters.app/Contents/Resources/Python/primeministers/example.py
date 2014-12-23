@@ -1,12 +1,17 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
+from primeministers import downloader
+from primeministers import translator
+from primeministers import writer
 import os
 import shutil
 
-import downloader
-import translator
-import writer
+
 
 class Example(object):
 	"""例題プログラム：総理大臣のCSVファイルをHTMLページへと変換する。"""
@@ -19,7 +24,7 @@ class Example(object):
 		# すでに存在すれば、当該ディレクトリを消して、新たに作り、
 		# 存在しなければ、当該ディレクトリを作成する。
 		home_directory = os.environ['HOME']
-		base_directory = home_directory + '/Desktop/SouriDaijin'
+		base_directory = os.path.join(home_directory,'Desktop','SouriDaijin')
 		if os.path.isdir(base_directory):
 			shutil.rmtree(base_directory)
 		os.makedirs(base_directory)
@@ -30,6 +35,7 @@ class Example(object):
 		a_table = a_downloader.download_all()
 		print a_table
 
+	
 		# トランスレータに入力となるテーブルを渡して変換してもらい、
 		# 出力となるテーブルを獲得する。
 		a_translator = translator.Translator(a_table)

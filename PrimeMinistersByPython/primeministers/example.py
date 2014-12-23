@@ -1,12 +1,17 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__author__ = "Tokuume Shinya<g1244785@cc.kyoto-su.ac.jp>"
+__status__ = "production"
+__date__ = "22 December 2014"
+
+from primeministers import downloader
+from primeministers import translator
+from primeministers import writer
 import os
 import shutil
 
-import downloader
-import translator
-import writer
+
 
 class Example(object):
 	"""例題プログラム：総理大臣のCSVファイルをHTMLページへと変換する。"""
