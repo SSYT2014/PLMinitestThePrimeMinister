@@ -250,8 +250,318 @@ th {
 <hr>
 <h2>プログラミング言語：小テスト「総理大臣」マニュアル</h2>
 <div class="belt">
-<h3><a name="Install">インストール</a>(実行ファイルの作り方)</h3>
+<h3><a name="Install_java">インストール</a>(実行ファイルの作り方) Java編</h3>
 </div>
+<ol>
+  <li><a href="">primi.zip</a>のアーカイブファイルを適当な場所に展開する。
+  <pre class="belt">$ unzip MVC.zip
+Archive:  MVC.zip
+   creating: MVC/MVC.app/
+   creating: MVC/MVC.app/Contents/
+   creating: MVC/MVC.app/Contents/MacOS/
+   creating: MVC/MVC.app/Contents/Resources/
+   creating: MVC/MVC.app/Contents/Resources/Scripts/
+   creating: MVC/MVC.app/Contents/Resources/description.rtfd/
+   creating: MVC/mvc/
+  inflating: MVC/MVC.app/Contents/Info.plist  
+  inflating: MVC/MVC.app/Contents/MacOS/applet  
+  inflating: MVC/MVC.app/Contents/PkgInfo  
+  inflating: MVC/MVC.app/Contents/Resources/JavaApp.icns  
+  inflating: MVC/MVC.app/Contents/Resources/Scripts/main.scpt  
+  inflating: MVC/MVC.app/Contents/Resources/applet.icns  
+  inflating: MVC/MVC.app/Contents/Resources/applet.rsrc  
+  inflating: MVC/MVC.app/Contents/Resources/description.rtfd/TXT.rtf  
+  inflating: MVC/Makefile            
+  inflating: MVC/Makefile.old        
+  inflating: MVC/build.xml           
+  inflating: MVC/mvc.mf              
+  inflating: MVC/mvc/Controller.java  
+  inflating: MVC/mvc/Example.java    
+  inflating: MVC/mvc/Model.java      
+  inflating: MVC/mvc/View.java</pre>
+  <li>展開して得られるMVCというディレクトリへ移る。
+  <pre class="belt">$ cd MVC</pre>
+  <li>中身を確認する。
+  <pre class="belt">$ ls *
+Makefile	Makefile.old	build.xml	mvc.mf
+
+MVC.app:
+Contents
+
+mvc:
+Controller.java	Example.java	Model.java	View.java</pre>
+  <li>makeする。
+  <pre class="belt">$ make
+env LC_ALL=en ant all
+Buildfile: /Users/aoki/Desktop/MVC/build.xml
+
+prepare:
+    [mkdir] Created dir: /Users/aoki/Desktop/MVC/Classes
+     [echo] on 2010/07/25 at 23:41:40
+
+compile:
+    [javac] Compiling 4 source files to /Users/aoki/Desktop/MVC/Classes
+     [echo] on 2010/07/25 at 23:41:40
+
+jar:
+      [jar] Building jar: /Users/aoki/Desktop/MVC/mvc.jar
+     [echo] on 2010/07/25 at 23:41:40
+
+all:
+     [echo] on 2010/07/25 at 23:41:40
+
+BUILD SUCCESSFUL
+Total time: 1 second</pre>
+  <li>mvc.jarが生成されていることを確かめる。
+  <pre class="belt">$ ls *
+Makefile	Makefile.old	build.xml	mvc.jar		mvc.mf
+
+Classes:
+mvc
+
+MVC.app:
+Contents
+
+mvc:
+Controller.java	Example.java	Model.java	View.java</pre>
+  <li>生成したmvc.jarをアプリケーション（MVC.app）の中にインストールする。
+  <pre class="belt">$ make install
+env LC_ALL=en ant install
+Buildfile: /Users/aoki/Desktop/MVC/build.xml
+
+prepare:
+     [echo] on 2010/07/25 at 23:43:14
+
+compile:
+     [echo] on 2010/07/25 at 23:43:14
+
+jar:
+     [echo] on 2010/07/25 at 23:43:14
+
+all:
+     [echo] on 2010/07/25 at 23:43:14
+
+install:
+     [copy] Copying 1 file to /Users/aoki/Desktop/MVC/MVC.app/Contents/Resources/Java
+     [echo] on 2010/07/25 at 23:43:14
+
+BUILD SUCCESSFUL
+Total time: 1 second</pre>
+</ol>
+<div class="belt">
+<h3><a name="Execution">実行方法</a>（実行ファイルの動かし方）</h3>
+</div>
+<p>実行するためのコマンドは以下の通りである。</p>
+<blockquote><code>java -jar mvc.jar</code></blockquote>
+<p>Mac OS Xの場合には、アプリケーションMVC.appをダブルクリックするほうが簡便である。</p>
+<blockquote>MVC.app<img class="borderless" src="images/MVC.png" width="128" height="128" alt="MVC.png"></blockquote>
+<p>また、openコマンドでMVC.appを開いても実行可能である。</p>
+<blockquote><code>open MVC.app</code></blockquote>
+<p>以下に実行例を示す。</p>
+<blockquote>
+  <table class="belt" summary="table">
+    <tbody>
+      <tr>
+        <td>
+        <table class="content" summary="table">
+          <tbody>
+            <tr>
+              <td class="center-small"><a href="images/Snapshot0.png"><img class="borderless" src="thumbnails/Snapshot0.png" width="620" height="450" alt="Snapshot0"></a></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="belt" summary="table">
+    <tbody>
+      <tr>
+        <td>
+        <table class="content" summary="table">
+          <tbody>
+            <tr>
+              <td class="center-small"><a href="images/Snapshot1.png"><img class="borderless" src="thumbnails/Snapshot1.png" width="620" height="450" alt="Snapshot1"></a></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="belt" summary="table">
+    <tbody>
+      <tr>
+        <td>
+        <table class="content" summary="table">
+          <tbody>
+              <tr>
+              <td class="center-small"><a href="images/Snapshot2.png"><img class="borderless" src="thumbnails/Snapshot2.png" width="620" height="450" alt="Snapshot2"></a></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+<div class="belt">
+<h3><a name="Install_py">インストール</a>(実行ファイルの作り方) Python編</h3>
+</div>
+<ol>
+  <li><a href="">primi.zip</a>のアーカイブファイルを適当な場所に展開する。
+  <pre class="belt">$ unzip MVC.zip
+Archive:  MVC.zip
+   creating: MVC/MVC.app/
+   creating: MVC/MVC.app/Contents/
+   creating: MVC/MVC.app/Contents/MacOS/
+   creating: MVC/MVC.app/Contents/Resources/
+   creating: MVC/MVC.app/Contents/Resources/Scripts/
+   creating: MVC/MVC.app/Contents/Resources/description.rtfd/
+   creating: MVC/mvc/
+  inflating: MVC/MVC.app/Contents/Info.plist  
+  inflating: MVC/MVC.app/Contents/MacOS/applet  
+  inflating: MVC/MVC.app/Contents/PkgInfo  
+  inflating: MVC/MVC.app/Contents/Resources/JavaApp.icns  
+  inflating: MVC/MVC.app/Contents/Resources/Scripts/main.scpt  
+  inflating: MVC/MVC.app/Contents/Resources/applet.icns  
+  inflating: MVC/MVC.app/Contents/Resources/applet.rsrc  
+  inflating: MVC/MVC.app/Contents/Resources/description.rtfd/TXT.rtf  
+  inflating: MVC/Makefile            
+  inflating: MVC/Makefile.old        
+  inflating: MVC/build.xml           
+  inflating: MVC/mvc.mf              
+  inflating: MVC/mvc/Controller.java  
+  inflating: MVC/mvc/Example.java    
+  inflating: MVC/mvc/Model.java      
+  inflating: MVC/mvc/View.java</pre>
+  <li>展開して得られるMVCというディレクトリへ移る。
+  <pre class="belt">$ cd MVC</pre>
+  <li>中身を確認する。
+  <pre class="belt">$ ls *
+Makefile	Makefile.old	build.xml	mvc.mf
+
+MVC.app:
+Contents
+
+mvc:
+Controller.java	Example.java	Model.java	View.java</pre>
+  <li>makeする。
+  <pre class="belt">$ make
+env LC_ALL=en ant all
+Buildfile: /Users/aoki/Desktop/MVC/build.xml
+
+prepare:
+    [mkdir] Created dir: /Users/aoki/Desktop/MVC/Classes
+     [echo] on 2010/07/25 at 23:41:40
+
+compile:
+    [javac] Compiling 4 source files to /Users/aoki/Desktop/MVC/Classes
+     [echo] on 2010/07/25 at 23:41:40
+
+jar:
+      [jar] Building jar: /Users/aoki/Desktop/MVC/mvc.jar
+     [echo] on 2010/07/25 at 23:41:40
+
+all:
+     [echo] on 2010/07/25 at 23:41:40
+
+BUILD SUCCESSFUL
+Total time: 1 second</pre>
+  <li>mvc.jarが生成されていることを確かめる。
+  <pre class="belt">$ ls *
+Makefile	Makefile.old	build.xml	mvc.jar		mvc.mf
+
+Classes:
+mvc
+
+MVC.app:
+Contents
+
+mvc:
+Controller.java	Example.java	Model.java	View.java</pre>
+  <li>生成したmvc.jarをアプリケーション（MVC.app）の中にインストールする。
+  <pre class="belt">$ make install
+env LC_ALL=en ant install
+Buildfile: /Users/aoki/Desktop/MVC/build.xml
+
+prepare:
+     [echo] on 2010/07/25 at 23:43:14
+
+compile:
+     [echo] on 2010/07/25 at 23:43:14
+
+jar:
+     [echo] on 2010/07/25 at 23:43:14
+
+all:
+     [echo] on 2010/07/25 at 23:43:14
+
+install:
+     [copy] Copying 1 file to /Users/aoki/Desktop/MVC/MVC.app/Contents/Resources/Java
+     [echo] on 2010/07/25 at 23:43:14
+
+BUILD SUCCESSFUL
+Total time: 1 second</pre>
+</ol>
+<div class="belt">
+<h3><a name="Execution">実行方法</a>（実行ファイルの動かし方）</h3>
+</div>
+<p>実行するためのコマンドは以下の通りである。</p>
+<blockquote><code>java -jar mvc.jar</code></blockquote>
+<p>Mac OS Xの場合には、アプリケーションMVC.appをダブルクリックするほうが簡便である。</p>
+<blockquote>MVC.app<img class="borderless" src="images/MVC.png" width="128" height="128" alt="MVC.png"></blockquote>
+<p>また、openコマンドでMVC.appを開いても実行可能である。</p>
+<blockquote><code>open MVC.app</code></blockquote>
+<p>以下に実行例を示す。</p>
+<blockquote>
+  <table class="belt" summary="table">
+    <tbody>
+      <tr>
+        <td>
+        <table class="content" summary="table">
+          <tbody>
+            <tr>
+              <td class="center-small"><a href="images/Snapshot0.png"><img class="borderless" src="thumbnails/Snapshot0.png" width="620" height="450" alt="Snapshot0"></a></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="belt" summary="table">
+    <tbody>
+      <tr>
+        <td>
+        <table class="content" summary="table">
+          <tbody>
+            <tr>
+              <td class="center-small"><a href="images/Snapshot1.png"><img class="borderless" src="thumbnails/Snapshot1.png" width="620" height="450" alt="Snapshot1"></a></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="belt" summary="table">
+    <tbody>
+      <tr>
+        <td>
+        <table class="content" summary="table">
+          <tbody>
+              <tr>
+              <td class="center-small"><a href="images/Snapshot2.png"><img class="borderless" src="thumbnails/Snapshot2.png" width="620" height="450" alt="Snapshot2"></a></td>
+            </tr>
+          </tbody>
+        </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
 <hr>
 <div class="right-small">Copyright 2014 Project xx, <script>modified();</script> (Created: 2009/11/11)</div>
 </body>
