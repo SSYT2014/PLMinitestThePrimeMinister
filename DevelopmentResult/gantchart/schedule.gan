@@ -44,8 +44,8 @@
         <task id="12" name="コーディング(Java)" color="#8cb6ce" meeting="false" start="2014-12-01" duration="15" complete="0" expand="true"/>
         <task id="14" name="単体テスト" color="#8cb6ce" meeting="false" start="2014-12-19" duration="2" complete="0" expand="true"/>
         <task id="16" name="結合テスト" color="#8cb6ce" meeting="false" start="2014-12-17" duration="4" complete="0" expand="true"/>
-        <task id="18" name="予備日" color="#8cb6ce" meeting="false" start="2014-12-22" duration="3" complete="0" expand="true"/>
-        <task id="20" name="リリース" color="#8cb6ce" meeting="false" start="2014-12-25" duration="1" complete="0" expand="true"/>
+        <task id="18" name="予備日" color="#8cb6ce" meeting="false" start="2014-12-22" duration="2" complete="0" expand="true"/>
+        <task id="20" name="リリース" color="#8cb6ce" meeting="false" start="2014-12-24" duration="1" complete="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
